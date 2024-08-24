@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.11.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="#">Geometry solver</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="NavbarContent">
+                    <form class="d-flex">
+                        <!-- <button class="btn btn-secondary" type="button" id="SwitchThemeButton">
+                            <i></i>
+                        </button> -->
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-2">
+            <input type="text" id="ExamCodeInput">
+            <br>
+            <button type="submit" id="SubmitButton" class="btn btn-primary">OK</button>
+            <hr>
+            <div id="Result" class="d-flex flex-column"></div>
+        </div>
+    </main>
+    <script src="index.js" type="module"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function populateInput() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const inputValue = urlParams.get('q'); // Replace 'parameterName' with the name of your query parameter
+            const inputField = document.getElementById('ExamCodeInput');
+
+            if (inputValue) {
+                inputField.value = inputValue;
+                window.setTimeout(() => document.getElementById('SubmitButton').click(), 100);
+            } else {
+
+            }
+        }
+
+        // Call populateInput when the page loads
+        window.onload = populateInput;
+    </script>
+</body>
+
+</html>
